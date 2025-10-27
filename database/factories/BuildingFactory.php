@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Clickbar\Magellan\Data\Geometries\Point;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,6 +19,7 @@ class BuildingFactory extends Factory
     {
         return [
             'address' => $this->faker->address(),
+            'location' => Point::makeGeodetic($this->faker->latitude(), $this->faker->longitude()),
         ];
     }
 }
